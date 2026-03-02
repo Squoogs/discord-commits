@@ -56,7 +56,7 @@ function createEmbed(url, commits, size, pusher, discordUsername) {
   return new MessageEmbed()
     .setColor('#00BFFF')
     .setAuthor({
-      name: `⚡ ${discordUsername} pushed ${size} commit${
+      name: `👿 ${discordUsername} pushed ${size} commit${
         size === 1 ? "" : "s"
       }`,
       iconURL: `https://github.com/${pusher}.png?size=64`,
