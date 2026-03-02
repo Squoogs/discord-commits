@@ -54,7 +54,7 @@ function createEmbed(url, commits, size, pusher, discordUsername) {
   }
   const latest = commits[0];
   return new MessageEmbed()
-    .setColor(0xf1e542)
+    .setColor('AQUA')
     .setAuthor({
       name: `⚡ ${discordUsername} pushed ${size} commit${
         size === 1 ? "" : "s"
