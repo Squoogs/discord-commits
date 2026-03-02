@@ -7,7 +7,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Run Discord Webhook
-        uses: ChatDisabled/discord-commits@main
+        uses: Squoogs/discord-commits@main
         with:
           id: ${{ secrets.DISCORD_WEBHOOK_ID }}
           token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
