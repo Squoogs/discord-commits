@@ -76,7 +76,7 @@ function getChangeLog(commits, size) {
 
     const commit = commits[i];
     const sha = commit.id.substring(0, 6);
-    const isHidden = commit.message.startsWith("hidden: ");
+    const isHidden = /^hidden[: (]/.test(commit.message);
     const message = isHidden
       ? "top secret commit"
       : commit.message.length > MAX_MESSAGE_LENGTH
