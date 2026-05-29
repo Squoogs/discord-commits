@@ -76,13 +76,14 @@ function getChangeLog(commits, size) {
 
     const commit = commits[i];
     const sha = commit.id.substring(0, 6);
-    const isHidden = /^hidden[: (]/.test(commit.message);
+    const subject = commit.message.split("\n")[0];
+    const isHidden = /^hidden[: (]/.test(subject);
     const message = isHidden
       ? "top secret commit"
-      : commit.message.length > MAX_MESSAGE_LENGTH
-        ? commit.message.substring(0, MAX_MESSAGE_LENGTH) + "..."
-        : commit.message;
-    changelog += `[\`${sha}\`](${commit.url}) — ${message}\n`;
+      : subject.length > MAX_MESSAGE_LENGTH
+        ? subject.substring(0, MAX_MESSAGE_LENGTH) + "..."
+        : subject;
+    changelog += `\`${sha}\` — ${message}\n`;
   }
 
   return changelog;
