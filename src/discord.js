@@ -76,7 +76,9 @@ function getChangeLog(commits, size) {
 
     const commit = commits[i];
     const sha = commit.id.substring(0, 6);
-    const subject = commit.message.split("\n")[0];
+    const subject = commit.message
+      .split("\n")[0]
+      .replace(/ of (https?:\/\/|git@)\S+$/, "");
     const isHidden = /^hidden[: (]/.test(subject);
     const message = isHidden
       ? "top secret commit"
